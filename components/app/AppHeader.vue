@@ -36,7 +36,17 @@
                 </template>
             </VDropdown>
 
-            <!-- <HeDivider vertical class="h-8 ml-2"/> -->
+            <HeDivider vertical class="h-8 ml-2"/>
+
+            <VDropdown placement="bottom-start" :skidding="-8" :distance="-1">
+                <AppHeaderItem show-chevron color="#3c9fff" icon="genetics" v-tooltip="'Gencestor'"/>
+                <template #popper>
+                    <ContextMenu class="min-w-80">
+                        <ContextMenuItem to="/gencestor/pedigrees" show-chevron color="#3c9fff" icon="flowchart">Ahnentafeln</ContextMenuItem>
+                        <ContextMenuItem to="/gencestor/animals" show-chevron color="#3c9fff" icon="pets">Tiere</ContextMenuItem>
+                    </ContextMenu>
+                </template>
+            </VDropdown>
 
             <!-- <VDropdown placement="bottom-start" :skidding="-8" :distance="-1" v-if="devMode">
                 <AppHeaderItem show-chevron color="#06B6D4" icon="edit_square" v-tooltip="'Formulare'"/>

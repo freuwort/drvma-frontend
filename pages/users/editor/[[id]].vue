@@ -236,7 +236,6 @@
     import { toast } from 'vue3-toastify'
     import type { Country } from '~/types/units'
     import type { BasicRole } from '~/types/role'
-import dayjs from '#build/dayjs.imports.mjs';
 
     const NuxtLink = defineNuxtLink({})
     const scope = 'view_admin_users_show'
