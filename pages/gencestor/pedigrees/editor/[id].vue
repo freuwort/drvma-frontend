@@ -68,30 +68,20 @@
     // START: Server routes
     function fetch() {
         form.get(apiRoute('/api/gencestor/pedigrees/:id', { id: id.value }), {
-            onSuccess(response: any)
-            {
+            onSuccess(response: any) {
                 form.defaults(response.data).reset()
             },
         })
     }
 
-    // function store() {
-    //     form
-    //     .post(apiRoute('/api/gencestor/pedigrees'), {
-    //         onSuccess(response: any)
-    //         {
-    //             form.defaults(response.data).reset()
-    //             toast.success('Ahnentafel wurde erstellt')
-    //             navigateTo(apiRoute('/gencestor/pedigrees/editor/:id', { id: response.data?.id }))
-    //         },
-    //     })
-    // }
-
     function update() {
         form
+        .transform((data) => ({
+                ...data,
+                animal_ids: data.animals.map((animal: any) => animal.id),
+        }))
         .patch(apiRoute('/api/gencestor/pedigrees/:id', { id: id.value }), {
-            onSuccess(response: any)
-            {
+            onSuccess(response: any) {
                 form.defaults(response.data).reset()
                 toast.success('Ahnentafel wurde aktualisiert')
             },
