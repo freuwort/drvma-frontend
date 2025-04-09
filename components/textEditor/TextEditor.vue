@@ -7,8 +7,10 @@
             
             <div class="toolbar-panel tab-panel">
                 <button type="button" class="toolbar-button" :class="{'is-active': tab === 'home'}" @click="tab = 'home'">Home</button>
-                <button type="button" class="toolbar-button" :class="{'is-active': tab === 'insert'}" @click="tab = 'insert'">Einfügen</button>
-                <button type="button" class="toolbar-button" :class="{'is-active': tab === 'view'}" @click="tab = 'view'">Ansicht</button>
+                <template v-show="!simplified">
+                    <button type="button" class="toolbar-button" :class="{'is-active': tab === 'insert'}" @click="tab = 'insert'">Einfügen</button>
+                    <button type="button" class="toolbar-button" :class="{'is-active': tab === 'view'}" @click="tab = 'view'">Ansicht</button>
+                </template>
                 <button type="button" class="toolbar-button" :class="{'is-active': tab === 'table'}" @click="tab = 'table'" v-show="editor.isActive('table')">Tabelle</button>
                 
                 <HeSpacer />

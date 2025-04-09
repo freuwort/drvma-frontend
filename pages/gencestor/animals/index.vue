@@ -17,12 +17,13 @@
                 @request:refresh="IPM.fetch()"
             >
                 <template #right>
-                    <IodButton :is="NuxtLink" corner="pill" variant="filled" label="Neues Tier" icon-right="add" to="/gencestor/animals/editor"/>
+                    <IodButton type="button" corner="pill" variant="filled" label="Neues Tier" icon-right="add" @click="newAnimalPopup.open(null)"/>
                 </template>
             </IodTable>
         </HeCard>
 
-        <DialogCsvImport ref="importPopup" :fields="importFields" @import="importUsers" />
+        <!-- <DialogCsvImport ref="importPopup" :fields="importFields" @import="importUsers" /> -->
+        <GencestorNewAnimal ref="newAnimalPopup" />
     </NuxtLayout>
 </template>
 
@@ -38,6 +39,7 @@
 
 
 
+    const newAnimalPopup = ref()
     const IPM = useItemPageManager({
         scope,
         pageTitle: 'Tier Verwaltung',

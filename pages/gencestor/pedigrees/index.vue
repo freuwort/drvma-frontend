@@ -22,7 +22,7 @@
             </IodTable>
         </HeCard>
 
-        <DialogCsvImport ref="importPopup" :fields="importFields" @import="importUsers" />
+        <!-- <DialogCsvImport ref="importPopup" :fields="importFields" @import="importUsers" /> -->
         <GencestorNewPedigree ref="newPedigreePopup" />
     </NuxtLayout>
 </template>
